@@ -16,6 +16,13 @@ public class MarkEntry {
     public MarkEntry() {
     }
 
+    public MarkEntry(double mark, String feedBack) {
+        this.mark = mark;
+        this.feedBack = feedBack;
+    }
+    
+    
+
     public double getMark() {
         return mark;
     }

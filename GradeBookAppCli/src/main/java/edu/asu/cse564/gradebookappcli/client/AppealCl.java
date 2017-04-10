@@ -22,7 +22,7 @@ public class AppealCl {
 
     private WebResource webResource;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/api/gradebook/appeal";
+    private static final String BASE_URI = "http://localhost:8080/GradeBookAppSrv/api/gradebook/appeal";
     
     public AppealCl() {
         ClientConfig config = new DefaultClientConfig();
@@ -54,9 +54,10 @@ public class AppealCl {
                 .put(Appeal.class, updateRecord);
     }
             
-    public Appeal deleteAppeal(String appealId) {
+    public Appeal deleteAppeal(String appealId, String approve) {
         return webResource
                 .path("/" + appealId)
+                .queryParam("approve", approve)
                 .accept(MediaType.APPLICATION_JSON)
                 .type(MediaType.APPLICATION_JSON)
                 .delete(Appeal.class);

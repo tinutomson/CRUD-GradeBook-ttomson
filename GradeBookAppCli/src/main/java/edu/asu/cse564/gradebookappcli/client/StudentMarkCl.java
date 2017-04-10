@@ -22,7 +22,7 @@ public class StudentMarkCl {
 
     private WebResource webResource;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/api/student";
+    private static final String BASE_URI = "http://localhost:8080/GradeBookAppSrv/api/student";
 
     public StudentMarkCl() {
         ClientConfig config = new DefaultClientConfig();

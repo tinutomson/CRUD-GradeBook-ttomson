@@ -22,7 +22,7 @@ public class TaskCl {
 
     private WebResource webResource;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/api/gradebook/gradeItem/";
+    private static final String BASE_URI = "http://localhost:8080/GradeBookAppSrv/api/gradebook/gradeItem/";
 
     public TaskCl() {
         ClientConfig config = new DefaultClientConfig();

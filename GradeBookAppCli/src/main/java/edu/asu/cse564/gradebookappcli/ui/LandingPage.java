@@ -41,9 +41,9 @@ public class LandingPage extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jMainTabbedPanel = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jTabbedPane14 = new javax.swing.JTabbedPane();
+        jStudentTabbedPane = new javax.swing.JTabbedPane();
         jPanel16 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jCreateUserNameTextField = new javax.swing.JTextField();
@@ -73,7 +73,7 @@ public class LandingPage extends javax.swing.JFrame {
         jDeleteStudentButton = new javax.swing.JButton();
         jDSErrorLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jSGTabbedPanel = new javax.swing.JTabbedPane();
+        jGradeTabbedPane = new javax.swing.JTabbedPane();
         jPanel10 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jCGUserNameTextField = new javax.swing.JTextField();
@@ -121,7 +121,7 @@ public class LandingPage extends javax.swing.JFrame {
         jDGButton = new javax.swing.JButton();
         jDGErrorLabel = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jTabbedPane9 = new javax.swing.JTabbedPane();
+        jTaskTabbedPane = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jLabel78 = new javax.swing.JLabel();
@@ -163,9 +163,9 @@ public class LandingPage extends javax.swing.JFrame {
         jDTIDTextField = new javax.swing.JTextField();
         jDTButton = new javax.swing.JButton();
         jDTErrorLabel = new javax.swing.JLabel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jAppealTabbedPane = new javax.swing.JTabbedPane();
         jPanel29 = new javax.swing.JPanel();
-        jPanel33 = new javax.swing.JPanel();
+        jCAPanel = new javax.swing.JPanel();
         jLabel49 = new javax.swing.JLabel();
         jCAStudNameTextField = new javax.swing.JTextField();
         jLabel50 = new javax.swing.JLabel();
@@ -177,7 +177,7 @@ public class LandingPage extends javax.swing.JFrame {
         jCADescriptionTextArea = new javax.swing.JTextArea();
         jCAButton = new javax.swing.JButton();
         jCAErrorLabel = new javax.swing.JLabel();
-        jPanel30 = new javax.swing.JPanel();
+        jRAPanel = new javax.swing.JPanel();
         jPanel34 = new javax.swing.JPanel();
         jLabel53 = new javax.swing.JLabel();
         jRAIDTextField = new javax.swing.JTextField();
@@ -188,32 +188,30 @@ public class LandingPage extends javax.swing.JFrame {
         jLabel56 = new javax.swing.JLabel();
         jRAButton = new javax.swing.JButton();
         jLabel57 = new javax.swing.JLabel();
-        jRAStudNameTextField1 = new javax.swing.JTextField();
+        jRATaskIdTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jRADescTextArea = new javax.swing.JTextArea();
         jRAErrorLabel = new javax.swing.JLabel();
-        jPanel31 = new javax.swing.JPanel();
-        jPanel35 = new javax.swing.JPanel();
-        jUAButton = new javax.swing.JButton();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        jUADescTextArea = new javax.swing.JTextArea();
-        jLabel63 = new javax.swing.JLabel();
-        jLabel64 = new javax.swing.JLabel();
-        jUAExpMarkTextField = new javax.swing.JTextField();
-        jLabel77 = new javax.swing.JLabel();
-        jUATaskIDTextField = new javax.swing.JTextField();
-        jLabel81 = new javax.swing.JLabel();
-        jUAStudNameTextField = new javax.swing.JTextField();
+        jUAPanel = new javax.swing.JPanel();
         jLabel58 = new javax.swing.JLabel();
         jUAIDTextField = new javax.swing.JTextField();
+        jLabel81 = new javax.swing.JLabel();
+        jUAStudNameTextField = new javax.swing.JTextField();
+        jLabel77 = new javax.swing.JLabel();
+        jUATaskIDTextField = new javax.swing.JTextField();
+        jLabel64 = new javax.swing.JLabel();
+        jUAExpMarkTextField = new javax.swing.JTextField();
+        jLabel63 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jUADescTextArea = new javax.swing.JTextArea();
+        jUAButton = new javax.swing.JButton();
         jUAErrorLabel = new javax.swing.JLabel();
         jPanel32 = new javax.swing.JPanel();
-        jPanel36 = new javax.swing.JPanel();
-        jPanel37 = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
         jDAIDTextField = new javax.swing.JTextField();
         jDAButton = new javax.swing.JButton();
         jDAErrorLabel = new javax.swing.JLabel();
+        jDAApproveButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
@@ -232,7 +230,7 @@ public class LandingPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.setBackground(new java.awt.Color(153, 153, 255));
+        jMainTabbedPanel.setBackground(new java.awt.Color(153, 153, 255));
 
         jLabel1.setText("Enter Student UserName");
 
@@ -297,7 +295,7 @@ public class LandingPage extends javax.swing.JFrame {
                 .addContainerGap(130, Short.MAX_VALUE))
         );
 
-        jTabbedPane14.addTab("Create Student", jPanel16);
+        jStudentTabbedPane.addTab("Create Student", jPanel16);
 
         jLabel5.setText("Enter student Username");
 
@@ -381,7 +379,7 @@ public class LandingPage extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jTabbedPane14.addTab("Read Student", jPanel9);
+        jStudentTabbedPane.addTab("Read Student", jPanel9);
 
         jLabel61.setText("Enter Student UserName");
 
@@ -446,7 +444,7 @@ public class LandingPage extends javax.swing.JFrame {
                 .addContainerGap(123, Short.MAX_VALUE))
         );
 
-        jTabbedPane14.addTab("Update Student", jPanel14);
+        jStudentTabbedPane.addTab("Update Student", jPanel14);
 
         jLabel13.setText("Enter Student UserName");
 
@@ -516,22 +514,22 @@ public class LandingPage extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jTabbedPane14.addTab("Delete Student", jPanel15);
+        jStudentTabbedPane.addTab("Delete Student", jPanel15);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jStudentTabbedPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTabbedPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jStudentTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 159, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Manage Students", jPanel1);
+        jMainTabbedPanel.addTab("Manage Students", jPanel1);
 
         jLabel6.setText("Enter Student UserName");
 
@@ -627,7 +625,7 @@ public class LandingPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jSGTabbedPanel.addTab("Create Grade", jPanel10);
+        jGradeTabbedPane.addTab("Create Grade", jPanel10);
 
         jLabel34.setText("Enter Student UserName");
 
@@ -737,7 +735,7 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(0, 17, Short.MAX_VALUE))
         );
 
-        jSGTabbedPanel.addTab("Read Grade", jPanel11);
+        jGradeTabbedPane.addTab("Read Grade", jPanel11);
 
         jUGErrorLabel.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -853,7 +851,7 @@ public class LandingPage extends javax.swing.JFrame {
             .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jSGTabbedPanel.addTab("Update Grade", jPanel12);
+        jGradeTabbedPane.addTab("Update Grade", jPanel12);
 
         jLabel29.setText("Enter Student Name");
 
@@ -928,20 +926,20 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(0, 159, Short.MAX_VALUE))
         );
 
-        jSGTabbedPanel.addTab("Delete Grade", jPanel13);
+        jGradeTabbedPane.addTab("Delete Grade", jPanel13);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSGTabbedPanel)
+            .addComponent(jGradeTabbedPane)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSGTabbedPanel)
+            .addComponent(jGradeTabbedPane)
         );
 
-        jTabbedPane1.addTab("Manage Student Grades", jPanel2);
+        jMainTabbedPanel.addTab("Manage Student Grades", jPanel2);
 
         jLabel78.setText("Task Name");
 
@@ -1043,7 +1041,7 @@ public class LandingPage extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jTabbedPane9.addTab("Create Task", jPanel5);
+        jTaskTabbedPane.addTab("Create Task", jPanel5);
 
         jLabel67.setText("Task ID");
 
@@ -1175,7 +1173,7 @@ public class LandingPage extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jTabbedPane9.addTab("Read Task", jPanel6);
+        jTaskTabbedPane.addTab("Read Task", jPanel6);
 
         jLabel73.setText("Task ID");
 
@@ -1291,7 +1289,7 @@ public class LandingPage extends javax.swing.JFrame {
                     .addGap(0, 129, Short.MAX_VALUE)))
         );
 
-        jTabbedPane9.addTab("Update Task", jPanel7);
+        jTaskTabbedPane.addTab("Update Task", jPanel7);
 
         jLabel45.setText("Task ID");
 
@@ -1361,7 +1359,7 @@ public class LandingPage extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jTabbedPane9.addTab("Delete Task", jPanel8);
+        jTaskTabbedPane.addTab("Delete Task", jPanel8);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1369,14 +1367,14 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane9))
+                .addComponent(jTaskTabbedPane))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane9)
+            .addComponent(jTaskTabbedPane)
         );
 
-        jTabbedPane1.addTab("Manage Tasks", jPanel4);
+        jMainTabbedPanel.addTab("Manage Tasks", jPanel4);
 
         jLabel49.setText("Student Name");
 
@@ -1405,77 +1403,73 @@ public class LandingPage extends javax.swing.JFrame {
 
         jCAErrorLabel.setForeground(new java.awt.Color(255, 0, 0));
 
-        javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
-        jPanel33.setLayout(jPanel33Layout);
-        jPanel33Layout.setHorizontalGroup(
-            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel33Layout.createSequentialGroup()
+        javax.swing.GroupLayout jCAPanelLayout = new javax.swing.GroupLayout(jCAPanel);
+        jCAPanel.setLayout(jCAPanelLayout);
+        jCAPanelLayout.setHorizontalGroup(
+            jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jCAPanelLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel33Layout.createSequentialGroup()
+                .addGroup(jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jCAPanelLayout.createSequentialGroup()
                         .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jCATaskIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel33Layout.createSequentialGroup()
+                    .addGroup(jCAPanelLayout.createSequentialGroup()
                         .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jCAStudNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel33Layout.createSequentialGroup()
-                        .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jCAPanelLayout.createSequentialGroup()
+                        .addGroup(jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCAExpMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCAButton)))
                     .addComponent(jCAErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
-        jPanel33Layout.setVerticalGroup(
-            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel33Layout.createSequentialGroup()
+        jCAPanelLayout.setVerticalGroup(
+            jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jCAPanelLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCAStudNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCATaskIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCAExpMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jCAButton)
                 .addGap(18, 18, 18)
                 .addComponent(jCAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
         jPanel29.setLayout(jPanel29Layout);
         jPanel29Layout.setHorizontalGroup(
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel29Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+            .addComponent(jCAPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel29Layout.setVerticalGroup(
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel29Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addComponent(jCAPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 120, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Create Appeal", jPanel29);
+        jAppealTabbedPane.addTab("Create Appeal", jPanel29);
 
         jLabel53.setText("Appeal ID");
 
@@ -1494,6 +1488,12 @@ public class LandingPage extends javax.swing.JFrame {
 
         jLabel57.setText("Task ID");
 
+        jRATaskIdTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRATaskIdTextFieldActionPerformed(evt);
+            }
+        });
+
         jRADescTextArea.setColumns(20);
         jRADescTextArea.setRows(5);
         jScrollPane1.setViewportView(jRADescTextArea);
@@ -1505,7 +1505,7 @@ public class LandingPage extends javax.swing.JFrame {
         jPanel34Layout.setHorizontalGroup(
             jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel34Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(83, 83, 83)
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jRAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1524,19 +1524,19 @@ public class LandingPage extends javax.swing.JFrame {
                     .addGroup(jPanel34Layout.createSequentialGroup()
                         .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jRAStudNameTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jRATaskIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel34Layout.createSequentialGroup()
                         .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRAButton)
                             .addComponent(jRAStudNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         jPanel34Layout.setVerticalGroup(
             jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel34Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(33, 33, 33)
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRAIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1549,7 +1549,7 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRAStudNameTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jRATaskIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1560,44 +1560,33 @@ public class LandingPage extends javax.swing.JFrame {
                     .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(jRAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
-        jPanel30.setLayout(jPanel30Layout);
-        jPanel30Layout.setHorizontalGroup(
-            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel30Layout.createSequentialGroup()
+        javax.swing.GroupLayout jRAPanelLayout = new javax.swing.GroupLayout(jRAPanel);
+        jRAPanel.setLayout(jRAPanelLayout);
+        jRAPanelLayout.setHorizontalGroup(
+            jRAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jRAPanelLayout.createSequentialGroup()
                 .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 123, Short.MAX_VALUE))
+                .addGap(0, 40, Short.MAX_VALUE))
         );
-        jPanel30Layout.setVerticalGroup(
-            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel30Layout.createSequentialGroup()
+        jRAPanelLayout.setVerticalGroup(
+            jRAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jRAPanelLayout.createSequentialGroup()
                 .addComponent(jPanel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane2.addTab("Read Appeal", jPanel30);
+        jAppealTabbedPane.addTab("Read Appeal", jRAPanel);
 
-        jUAButton.setText("Update Appeal");
-        jUAButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel58.setText("Appeal ID");
+
+        jLabel81.setText("Student Name");
+
+        jUAStudNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jUAButtonActionPerformed(evt);
-            }
-        });
-
-        jUADescTextArea.setColumns(20);
-        jUADescTextArea.setRows(5);
-        jScrollPane9.setViewportView(jUADescTextArea);
-
-        jLabel63.setText("Description");
-
-        jLabel64.setText("Expected Mark");
-
-        jUAExpMarkTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jUAExpMarkTextFieldActionPerformed(evt);
+                jUAStudNameTextFieldActionPerformed(evt);
             }
         });
 
@@ -1609,100 +1598,92 @@ public class LandingPage extends javax.swing.JFrame {
             }
         });
 
-        jLabel81.setText("Student Name");
+        jLabel64.setText("Expected Mark");
 
-        jUAStudNameTextField.addActionListener(new java.awt.event.ActionListener() {
+        jUAExpMarkTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jUAStudNameTextFieldActionPerformed(evt);
+                jUAExpMarkTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel58.setText("Appeal ID");
+        jLabel63.setText("Description");
+
+        jUADescTextArea.setColumns(20);
+        jUADescTextArea.setRows(5);
+        jScrollPane9.setViewportView(jUADescTextArea);
+
+        jUAButton.setText("Update Appeal");
+        jUAButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jUAButtonActionPerformed(evt);
+            }
+        });
 
         jUAErrorLabel.setForeground(new java.awt.Color(255, 0, 0));
 
-        javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
-        jPanel35.setLayout(jPanel35Layout);
-        jPanel35Layout.setHorizontalGroup(
-            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel35Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel35Layout.createSequentialGroup()
+        javax.swing.GroupLayout jUAPanelLayout = new javax.swing.GroupLayout(jUAPanel);
+        jUAPanel.setLayout(jUAPanelLayout);
+        jUAPanelLayout.setHorizontalGroup(
+            jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jUAPanelLayout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jUAPanelLayout.createSequentialGroup()
                         .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jUAIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel35Layout.createSequentialGroup()
+                    .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jUAPanelLayout.createSequentialGroup()
                             .addComponent(jLabel77, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(jUATaskIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel35Layout.createSequentialGroup()
+                        .addGroup(jUAPanelLayout.createSequentialGroup()
                             .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(jUAStudNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel35Layout.createSequentialGroup()
-                            .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jUAPanelLayout.createSequentialGroup()
+                            .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
-                            .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jUAExpMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jUAButton)))
                         .addComponent(jUAErrorLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
-        jPanel35Layout.setVerticalGroup(
-            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel35Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jUAPanelLayout.setVerticalGroup(
+            jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jUAPanelLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jUAIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jUAStudNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel77, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jUATaskIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jUAExpMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jUAButton)
                 .addGap(18, 18, 18)
                 .addComponent(jUAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
-        jPanel31.setLayout(jPanel31Layout);
-        jPanel31Layout.setHorizontalGroup(
-            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 835, Short.MAX_VALUE)
-            .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel31Layout.createSequentialGroup()
-                    .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 104, Short.MAX_VALUE)))
-        );
-        jPanel31Layout.setVerticalGroup(
-            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
-            .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel31Layout.createSequentialGroup()
-                    .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        jTabbedPane2.addTab("Update Appeal", jPanel31);
+        jAppealTabbedPane.addTab("Update Appeal", jUAPanel);
 
         jLabel46.setText("Appeal ID");
 
@@ -1719,92 +1700,62 @@ public class LandingPage extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
-        jPanel37.setLayout(jPanel37Layout);
-        jPanel37Layout.setHorizontalGroup(
-            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel37Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDAErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel37Layout.createSequentialGroup()
-                        .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDAButton)
-                            .addComponent(jDAIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 129, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel37Layout.setVerticalGroup(
-            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel37Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDAIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addComponent(jDAButton)
-                .addGap(28, 28, 28)
-                .addComponent(jDAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(236, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
-        jPanel36.setLayout(jPanel36Layout);
-        jPanel36Layout.setHorizontalGroup(
-            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 804, Short.MAX_VALUE)
-            .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel36Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(32, Short.MAX_VALUE)))
-        );
-        jPanel36Layout.setVerticalGroup(
-            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 479, Short.MAX_VALUE)
-            .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel36Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(34, Short.MAX_VALUE)))
-        );
+        jDAApproveButton.setText("Approve and Delete Appeal");
+        jDAApproveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDAApproveButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
         jPanel32.setLayout(jPanel32Layout);
         jPanel32Layout.setHorizontalGroup(
             jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 835, Short.MAX_VALUE)
-            .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel32Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jPanel32Layout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDAErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel32Layout.createSequentialGroup()
+                        .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel32Layout.createSequentialGroup()
+                                .addComponent(jDAButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(jDAApproveButton))
+                            .addComponent(jDAIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 21, Short.MAX_VALUE)))
+                .addGap(129, 129, 129))
         );
         jPanel32Layout.setVerticalGroup(
             jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
-            .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel32Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jPanel32Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDAIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDAButton)
+                    .addComponent(jDAApproveButton))
+                .addGap(28, 28, 28)
+                .addComponent(jDAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(366, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Delete Appeal", jPanel32);
+        jAppealTabbedPane.addTab("Delete Appeal", jPanel32);
 
-        jTabbedPane1.addTab("Manage Appeals", jTabbedPane2);
+        jMainTabbedPanel.addTab("Manage Appeals", jAppealTabbedPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jMainTabbedPanel)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jMainTabbedPanel)
         );
 
         pack();
@@ -2039,7 +1990,7 @@ public class LandingPage extends javax.swing.JFrame {
         String appealId = jDAIDTextField.getText();    
         Appeal appeal = null;
         try {
-            appeal = appealCl.deleteAppeal(appealId);
+            appeal = appealCl.deleteAppeal(appealId, "no");
         } catch(UniformInterfaceException e) {
             
         }
@@ -2049,18 +2000,6 @@ public class LandingPage extends javax.swing.JFrame {
     private void jDAIDTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDAIDTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jDAIDTextFieldActionPerformed
-
-    private void jRAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRAButtonActionPerformed
-        String appealId = jRAIDTextField.getText();
-        Appeal readAppeal = null;
-        try {
-            readAppeal = appealCl.readAppeal(appealId);
-        } catch(UniformInterfaceException e) {
-            
-        }
-        this.populateReadAppealForm(readAppeal);
-        
-    }//GEN-LAST:event_jRAButtonActionPerformed
 
     private void jCAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCAButtonActionPerformed
         String studName = jCAStudNameTextField.getText();
@@ -2204,6 +2143,32 @@ public class LandingPage extends javax.swing.JFrame {
         this.populateUpdateStudentMarkForm(updatedEntry, taskId, userName);
     }//GEN-LAST:event_jUGButtonActionPerformed
 
+    private void jRAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRAButtonActionPerformed
+        String appealId = jRAIDTextField.getText();
+        Appeal readAppeal = null;
+        try {
+            readAppeal = appealCl.readAppeal(appealId);
+        } catch(UniformInterfaceException e) {
+
+        }
+        this.populateReadAppealForm(readAppeal);
+    }//GEN-LAST:event_jRAButtonActionPerformed
+
+    private void jRATaskIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRATaskIdTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRATaskIdTextFieldActionPerformed
+
+    private void jDAApproveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDAApproveButtonActionPerformed
+        String appealId = jDAIDTextField.getText();    
+        Appeal appeal = null;
+        try {
+            appeal = appealCl.deleteAppeal(appealId, "yes");
+        } catch(UniformInterfaceException e) {
+            
+        }
+        this.populateDeleteAppealForm(appeal);        
+    }//GEN-LAST:event_jDAApproveButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2240,10 +2205,12 @@ public class LandingPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane jAppealTabbedPane;
     private javax.swing.JButton jCAButton;
     private javax.swing.JTextArea jCADescriptionTextArea;
     private javax.swing.JLabel jCAErrorLabel;
     private javax.swing.JTextField jCAExpMarkTextField;
+    private javax.swing.JPanel jCAPanel;
     private javax.swing.JTextField jCAStudNameTextField;
     private javax.swing.JTextField jCATaskIdTextField;
     private javax.swing.JButton jCGButton;
@@ -2260,6 +2227,7 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JTextField jCTWeightageTextField;
     private javax.swing.JButton jCreateStudentButton;
     private javax.swing.JTextField jCreateUserNameTextField;
+    private javax.swing.JButton jDAApproveButton;
     private javax.swing.JButton jDAButton;
     private javax.swing.JLabel jDAErrorLabel;
     private javax.swing.JTextField jDAIDTextField;
@@ -2273,6 +2241,7 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JLabel jDTErrorLabel;
     private javax.swing.JTextField jDTIDTextField;
     private javax.swing.JButton jDeleteStudentButton;
+    private javax.swing.JTabbedPane jGradeTabbedPane;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
@@ -2321,6 +2290,7 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
+    private javax.swing.JTabbedPane jMainTabbedPanel;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -2342,14 +2312,8 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
-    private javax.swing.JPanel jPanel30;
-    private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
-    private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel34;
-    private javax.swing.JPanel jPanel35;
-    private javax.swing.JPanel jPanel36;
-    private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2362,8 +2326,9 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JLabel jRAErrorLabel;
     private javax.swing.JTextField jRAExpMarkTextField;
     private javax.swing.JTextField jRAIDTextField;
+    private javax.swing.JPanel jRAPanel;
     private javax.swing.JTextField jRAStudNameTextField;
-    private javax.swing.JTextField jRAStudNameTextField1;
+    private javax.swing.JTextField jRATaskIdTextField;
     private javax.swing.JButton jRGButton;
     private javax.swing.JLabel jRGErrorLabel;
     private javax.swing.JTextArea jRGFeedbackTextField;
@@ -2380,7 +2345,6 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JTextField jRTNameTextField;
     private javax.swing.JTextField jRTTotMarkTextField;
     private javax.swing.JTextField jRTWeightTextField;
-    private javax.swing.JTabbedPane jSGTabbedPanel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
@@ -2388,10 +2352,8 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane14;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane9;
+    private javax.swing.JTabbedPane jStudentTabbedPane;
+    private javax.swing.JTabbedPane jTaskTabbedPane;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField2;
@@ -2401,6 +2363,7 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JLabel jUAErrorLabel;
     private javax.swing.JTextField jUAExpMarkTextField;
     private javax.swing.JTextField jUAIDTextField;
+    private javax.swing.JPanel jUAPanel;
     private javax.swing.JTextField jUAStudNameTextField;
     private javax.swing.JTextField jUATaskIDTextField;
     private javax.swing.JButton jUGButton;
@@ -2528,6 +2491,7 @@ public class LandingPage extends javax.swing.JFrame {
         if(item != null) {
             String strTaskId = Integer.toString(item.getTaskId());
             jRAStudNameTextField.setText(item.getStudentUserName());
+            jRATaskIdTextField.setText(Integer.toString(item.getTaskId()));
             jRAExpMarkTextField.setText(Double.toString(item.getExpectedMark()));
             jRADescTextArea.setText(item.getDescription());
             notice = "The appeal read at : gradebook/appeal/" + item.getAppealId();

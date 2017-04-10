@@ -42,6 +42,10 @@ public class GradeBook {
     public GradeItem findGradeItemById(String id) {
         return assignedList.findGradeItemById(id);
     }
+    
+    public GradeItem findGradeItemById(int id) {
+        return assignedList.findGradeItemById(id);
+    }
 
     public StudentRecord findStudentByUserName(String username) {
         return studentRecordList.findStudentByUserName(username);
@@ -61,6 +65,12 @@ public class GradeBook {
 
     public void deleteAppeal(Appeal appeal) {
         appealList.deleteAppeal(appeal);
+    }
+
+    public void updateFromAppeal(Appeal appeal) {
+        StudentRecord record = findStudentByUserName(appeal.getStudentUserName());
+        MarkEntry entry = record.getMarkEntry(Integer.toString(appeal.getTaskId()));
+        entry.setMark(appeal.getExpectedMark());
     }
 
 }

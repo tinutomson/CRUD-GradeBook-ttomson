@@ -40,6 +40,14 @@ public class GradeItemsList {
         return null;
     }
     
+    public GradeItem findGradeItemById(int id) {
+        for(GradeItem it: assignedTasks) {
+            if(it.getTaskId() == id)
+                return it;
+        }
+        return null;
+    }
+    
     public GradeItem addIfNotExists(GradeItem newItem) {
         for(GradeItem item: assignedTasks) {
             if(newItem.getTaskName().equals(item.getTaskName()) ) {

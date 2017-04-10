@@ -6,8 +6,8 @@
 package edu.asu.cse564.gradebookapp.service;
 
 import edu.asu.cse564.gradebookapp.main.AppData;
-import edu.asu.cse564.gradebookapp.model.Appeal;
 import edu.asu.cse564.gradebookapp.model.GradeBook;
+import edu.asu.cse564.gradebookapp.model.GradeItem;
 import edu.asu.cse564.gradebookapp.model.MarkEntry;
 import edu.asu.cse564.gradebookapp.model.StudentRecord;
 import java.net.URI;
@@ -96,11 +96,20 @@ public class StudentService {
     public Response createStudentMark(@PathParam("username") String username, @PathParam("gradeItemId") String gradeItemId, MarkEntry newEntry) throws URISyntaxException {
         StudentRecord record = classGradeBook.findStudentByUserName(username);
         if(record == null)
-            return Response.status(Response.Status.NOT_FOUND).build();
+            return Response.status(Response.Status.CONFLICT).build();
+        
+        GradeItem item = classGradeBook.findGradeItemById(gradeItemId);
+        if(item == null)
+            return Response.status(Response.Status.CONFLICT).build();
+        
+        if(item.getTotalMark() < newEntry.getMark())
+            return Response.status(Response.Status.CONFLICT).build();
+        
         MarkEntry addedEntry = record.addMarkEntry(gradeItemId, newEntry);
         if(addedEntry == null) {
-            return Response.status(Response.Status.CONFLICT).build();
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
+        
         URI location = new URI("student/"+ username + "/gradeItem/" + gradeItemId);
         return Response.created(location).entity(addedEntry).build();
     }
@@ -113,10 +122,17 @@ public class StudentService {
         StudentRecord record = classGradeBook.findStudentByUserName(username);
         if(record == null)
             return Response.status(Response.Status.NOT_FOUND).build();
-        MarkEntry entry = record.getMarkEntry(gradeItemId);
-        if(entry == null) {
+        
+        GradeItem item = classGradeBook.findGradeItemById(gradeItemId);
+        if(item == null)
             return Response.status(Response.Status.NOT_FOUND).build();
+        
+        MarkEntry entry = record.getMarkEntry(gradeItemId);      
+        if(entry == null) {
+            entry = new MarkEntry(0, "Assignment not yet graded for the student. Check back later.");
+            return Response.ok().entity(entry).build();
         }
+        
         return Response.ok().entity(entry).build();
     }
     
@@ -128,6 +144,14 @@ public class StudentService {
         StudentRecord record = classGradeBook.findStudentByUserName(username);
         if(record == null)
             return Response.status(Response.Status.NOT_FOUND).build();
+        
+        GradeItem item = classGradeBook.findGradeItemById(gradeItemId);
+        if(item == null)
+            return Response.status(Response.Status.CONFLICT).build();
+        
+        if(item.getTotalMark() < updateEntry.getMark())
+            return Response.status(Response.Status.CONFLICT).build();
+        
         MarkEntry updatedEntry = record.updateMarkEntry(gradeItemId, updateEntry);
         if(updatedEntry == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
@@ -144,6 +168,11 @@ public class StudentService {
         StudentRecord record = classGradeBook.findStudentByUserName(username);
         if(record == null)
             return Response.status(Response.Status.GONE).build();
+        
+        GradeItem item = classGradeBook.findGradeItemById(gradeItemId);
+        if(item == null)
+            return Response.status(Response.Status.CONFLICT).build();
+        
         MarkEntry deletedEntry = record.deleteMarkEntry(gradeItemId);
         if(deletedEntry == null)
             return Response.status(Response.Status.GONE).build();

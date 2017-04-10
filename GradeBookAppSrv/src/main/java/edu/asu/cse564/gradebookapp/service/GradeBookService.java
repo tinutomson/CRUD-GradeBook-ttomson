@@ -14,12 +14,14 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -112,9 +114,9 @@ public class GradeBookService {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/appeal/")
     public Response createAppeals(Appeal newAppeal) throws URISyntaxException {
-        StudentRecord record = classGradeBook.findStudentByUserName(newAppeal.getStudentUserName());
-        if(record == null)
+        if(!isValidAppeal(newAppeal))
             return Response.status(Response.Status.CONFLICT).build();
+        
         classGradeBook.addAppeal(newAppeal);
         URI location = new URI("gradebook/appeal/" + String.valueOf(newAppeal.getAppealId()));
         return Response.created(location).entity(newAppeal).build();
@@ -141,6 +143,8 @@ public class GradeBookService {
         if(appeal == null) {
             return Response.status(Response.Status.GONE).build();
         }
+        if(!isValidAppeal(updateAppeal))
+            return Response.status(Response.Status.CONFLICT).build();
         appeal.update(updateAppeal);
         return Response.ok().entity(appeal).build();
     }
@@ -149,12 +153,31 @@ public class GradeBookService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/appeal/{appealId}")
-    public Response deleteAppeal(@PathParam("appealId")String appealId) {
+    public Response deleteAppeal(@PathParam("appealId")String appealId, 
+            @DefaultValue("no") @QueryParam("approve") String approval) {
         Appeal appeal = classGradeBook.getAppeal(appealId);
         if(appeal == null) {
             return Response.status(Response.Status.GONE).build();
         }
+            
+        
+        if(approval !=null  && approval.equals("yes") && isValidAppeal(appeal)) {
+            classGradeBook.updateFromAppeal(appeal);
+        }
+
         classGradeBook.deleteAppeal(appeal);
         return Response.ok().entity(appeal).build();
+    }
+    
+    private boolean isValidAppeal(Appeal appeal) {
+        StudentRecord record = classGradeBook.findStudentByUserName(appeal.getStudentUserName());
+        if(record == null)
+            return false;
+        GradeItem item = classGradeBook.findGradeItemById(appeal.getTaskId());
+        if(item == null)
+            return false;
+        if(item.getTotalMark() < appeal.getExpectedMark())
+            return false;
+        return true;
     }
 }
