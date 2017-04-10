@@ -24,7 +24,7 @@ Server Application Deployment Requirement
 Apache Tomcat 9.0 or Glassfish 4.0
 
 ********************************************************************************
-			IMPORTANT : NOTICE OF GLASSFISH BUG ON VERSION 4.1.x
+	IMPORTANT : NOTICE OF GLASSFISH BUG ON VERSION 4.1.x
 ********************************************************************************
 
 The application is tested both on Glasfish 4.0 and Apache Tomcat. The application DOES NOT work on Glassfish 4.1.x because of the following bug. 
@@ -35,7 +35,10 @@ As of now , the client application relative URL is configured to work with Glass
 http://localhost:8080/GradeBookAppSrv/api/
 
 If you are running the application on Apache Tomcat, the BASE_URL has to be modified accordingly in the client.
-By default, the BASE_URL for tomcat will be :
+By default, the BASE_URI for tomcat will be :
+http://localhost:8080/api/
+If you want to use tomcat to deploy, you will have to modify following four files to edit
+BASE_URI variable in each of them to following pattern :
 http://localhost:8080/api/
 
 ********************************************************************************

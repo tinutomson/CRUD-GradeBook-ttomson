@@ -18,17 +18,11 @@ import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
  *
  * @author tinutomson
  */
-public class StudentCl {
-    
-    private WebResource webResource;
-    private Client client;
-    private static final String BASE_URI = "http://localhost:8080/GradeBookAppSrv/api/student";
+public class StudentCl extends BaseCl {
 
     public StudentCl() {
-        ClientConfig config = new DefaultClientConfig();
-        config.getClasses().add(MOXyJsonProvider.class);
-        client = Client.create(config);
-        webResource = client.resource(BASE_URI);
+        super();
+        webResource = client.resource(BASE_URI + "student");
     }
     
     public StudentRecord createStudent(Object requestEntity) throws UniformInterfaceException {      

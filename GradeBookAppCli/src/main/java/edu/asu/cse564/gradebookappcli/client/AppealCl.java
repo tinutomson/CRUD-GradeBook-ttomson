@@ -18,17 +18,11 @@ import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
  *
  * @author tinutomson
  */
-public class AppealCl {
-
-    private WebResource webResource;
-    private Client client;
-    private static final String BASE_URI = "http://localhost:8080/GradeBookAppSrv/api/gradebook/appeal";
+public class AppealCl extends BaseCl{
     
     public AppealCl() {
-        ClientConfig config = new DefaultClientConfig();
-        config.getClasses().add(MOXyJsonProvider.class);
-        client = Client.create(config);
-        webResource = client.resource(BASE_URI);
+        super();
+        webResource = client.resource(BASE_URI + "gradebook/appeal");
     }
 
     public Appeal createAppeal (Appeal requestEntity) throws UniformInterfaceException {      
