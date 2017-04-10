@@ -31,7 +31,7 @@ public class AppealList {
         this.appealList = appealList;
     }
 
-    Appeal addAppeal(StudentRecord record, Appeal newAppeal) {
+    Appeal addAppeal(Appeal newAppeal) {
         newAppeal.generateId();
         appealList.add(newAppeal);
         return newAppeal;
@@ -47,10 +47,10 @@ public class AppealList {
         return filteredList;
     }
 
-    Appeal getAppeal(String username, String appealId) {
+    Appeal getAppeal(String appealId) {
         int intAppealId = Integer.parseInt(appealId);
         for(Appeal appeal: appealList) {
-            if(appeal.getAppealId() == intAppealId && appeal.getStudentUserName().equals(username)) {
+            if(appeal.getAppealId() == intAppealId) {
                 return appeal;
             }
         }

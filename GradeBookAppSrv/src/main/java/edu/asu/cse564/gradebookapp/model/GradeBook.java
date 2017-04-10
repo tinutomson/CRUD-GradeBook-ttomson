@@ -47,16 +47,16 @@ public class GradeBook {
         return studentRecordList.findStudentByUserName(username);
     }
 
-    public Appeal addAppeal(StudentRecord record, Appeal newAppeal) {
-        return appealList.addAppeal(record, newAppeal); 
+    public Appeal addAppeal(Appeal newAppeal) {
+        return appealList.addAppeal(newAppeal); 
     }
 
     public AppealList getAppealList(String username) {
         return new AppealList(appealList.getAppealList(username));
     }
 
-    public Appeal getAppeal(String username, String appealId) {
-        return appealList.getAppeal(username, appealId);
+    public Appeal getAppeal(String appealId) {
+        return appealList.getAppeal(appealId);
     }
 
     public void deleteAppeal(Appeal appeal) {

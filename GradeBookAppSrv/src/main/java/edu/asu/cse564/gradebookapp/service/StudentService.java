@@ -21,13 +21,18 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
 @Path("student")
 public class StudentService {
     
     GradeBook classGradeBook;
+    
+    @Context
+    private UriInfo context;
     
     public StudentService() {
         classGradeBook = AppData.getGradeBook();
@@ -43,7 +48,7 @@ public class StudentService {
         if(addedRecord == null) {
             return Response.status(Response.Status.CONFLICT).build();
         }
-        URI location = new URI("student/" + addedRecord.getUserName());
+        URI location = new URI(context.getAbsolutePath() + "/" + addedRecord.getUserName());
         return Response.created(location).entity(addedRecord).build();
     }
     
@@ -145,64 +150,4 @@ public class StudentService {
         return Response.ok().entity(deletedEntry).build();
     }
     
-    // CRUD appeal
-    
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{username}/appeal/")
-    public Response createAppeals(@PathParam("username") String username, Appeal newAppeal) throws URISyntaxException {
-        StudentRecord record = classGradeBook.findStudentByUserName(username);
-        if(record == null)
-            return Response.status(Response.Status.CONFLICT).build();
-        classGradeBook.addAppeal(record, newAppeal);
-        URI location = new URI("student/" + username + "/appeal/");
-        return Response.created(location).entity(newAppeal).build();
-    }
-    
-    @GET
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{username}/appeals/")
-    public Response readAppeals(@PathParam("username") String username) {
-        return Response.ok().entity(classGradeBook.getAppealList(username)).build();
-    }
-    
-    @GET
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{username}/appeal/{appealId}")
-    public Response getAppeal(@PathParam("username") String username, @PathParam("appealId")String appealId) {
-        Appeal appeal = classGradeBook.getAppeal(username, appealId);
-        if(appeal == null) {
-            return Response.status(Response.Status.GONE).build();
-        }
-        return Response.ok().entity(appeal).build();
-    }
-    
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{username}/appeal/{appealId}")
-    public Response updateAppeal(@PathParam("username") String username, @PathParam("appealId")String appealId, Appeal updateAppeal) {
-        Appeal appeal = classGradeBook.getAppeal(username, appealId);
-        if(appeal == null) {
-            return Response.status(Response.Status.GONE).build();
-        }
-        appeal.update(updateAppeal);
-        return Response.ok().entity(appeal).build();
-    }
-    
-    @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{username}/appeal/{appealId}")
-    public Response deleteAppeal(@PathParam("username") String username, @PathParam("appealId")String appealId) {
-        Appeal appeal = classGradeBook.getAppeal(username, appealId);
-        if(appeal == null) {
-            return Response.status(Response.Status.GONE).build();
-        }
-        classGradeBook.deleteAppeal(appeal);
-        return Response.ok().entity(appeal).build();
-    }
 }

@@ -6,8 +6,10 @@
 package edu.asu.cse564.gradebookapp.service;
 
 import edu.asu.cse564.gradebookapp.main.AppData;
+import edu.asu.cse564.gradebookapp.model.Appeal;
 import edu.asu.cse564.gradebookapp.model.GradeBook;
 import edu.asu.cse564.gradebookapp.model.GradeItem;
+import edu.asu.cse564.gradebookapp.model.StudentRecord;
 import java.net.URI;
 import java.net.URISyntaxException;
 import javax.ws.rs.Consumes;
@@ -18,14 +20,19 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
 
 @Path("gradebook")
 public class GradeBookService {
     
     GradeBook classGradeBook;
+    
+    @Context
+    private UriInfo context;
 
     public GradeBookService() {
         classGradeBook = AppData.getGradeBook();
@@ -59,7 +66,7 @@ public class GradeBookService {
         if(addedItem == null) {
             return Response.status(Response.Status.CONFLICT).build();
         }
-        URI location = new URI("gradeItem/" + addedItem.getTaskId());
+        URI location = new URI(context.getAbsolutePath() + "/" + Integer.toString(addedItem.getTaskId()));
         return Response.created(location).entity(addedItem).build();
     }
     
@@ -98,13 +105,56 @@ public class GradeBookService {
         return Response.ok().entity(item).build();
     }
     
-    // GET all appeals
+    //CRUD Appeal
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/appeal/")
+    public Response createAppeals(Appeal newAppeal) throws URISyntaxException {
+        StudentRecord record = classGradeBook.findStudentByUserName(newAppeal.getStudentUserName());
+        if(record == null)
+            return Response.status(Response.Status.CONFLICT).build();
+        classGradeBook.addAppeal(newAppeal);
+        URI location = new URI("gradebook/appeal/" + String.valueOf(newAppeal.getAppealId()));
+        return Response.created(location).entity(newAppeal).build();
+    }
     
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/appeals")
-    public Response getAllAppeals() {
-        return Response.ok().entity(classGradeBook.getAppealList()).build();
+    @Path("/appeal/{appealId}")
+    public Response getAppeal(@PathParam("username") String username, @PathParam("appealId")String appealId) {
+        Appeal appeal = classGradeBook.getAppeal(appealId);
+        if(appeal == null) {
+            return Response.status(Response.Status.GONE).build();
+        }
+        return Response.ok().entity(appeal).build();
+    }
+    
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/appeal/{appealId}")
+    public Response updateAppeal(@PathParam("appealId")String appealId, Appeal updateAppeal) {
+        Appeal appeal = classGradeBook.getAppeal(appealId);
+        if(appeal == null) {
+            return Response.status(Response.Status.GONE).build();
+        }
+        appeal.update(updateAppeal);
+        return Response.ok().entity(appeal).build();
+    }
+    
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/appeal/{appealId}")
+    public Response deleteAppeal(@PathParam("appealId")String appealId) {
+        Appeal appeal = classGradeBook.getAppeal(appealId);
+        if(appeal == null) {
+            return Response.status(Response.Status.GONE).build();
+        }
+        classGradeBook.deleteAppeal(appeal);
+        return Response.ok().entity(appeal).build();
     }
 }
