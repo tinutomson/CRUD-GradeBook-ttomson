@@ -27,9 +27,11 @@ Apache Tomcat 9.0 or Glassfish 4.0
 	IMPORTANT : NOTICE OF GLASSFISH BUG ON VERSION 4.1.x
 ********************************************************************************
 
-The application is tested both on Glasfish 4.0 and Apache Tomcat. The application DOES NOT work on Glassfish 4.1.x because of the following bug. 
+The application is tested both on Glasfish 4.0 and Apache Tomcat. The application DOES NOT work on Glassfish 4.1.x because of the following bug:
+
 http://stackoverflow.com/questions/33319659/moxy-exceptions-in-javaee-jersey-2-0-project
-This bug is well documented all over internet and is not the problem with the application itself. Please take the above fact into consideration before running the application.
+
+This bug is well documented all over the internet and is not the problem with the application itself. Please take the above fact into consideration before running the application.
 
 As of now , the client application relative URL is configured to work with Glassfish 4.0. The client assumes that server application is hosted at :
 http://localhost:8080/GradeBookAppSrv/api/
@@ -37,8 +39,8 @@ http://localhost:8080/GradeBookAppSrv/api/
 If you are running the application on Apache Tomcat, the BASE_URL has to be modified accordingly in the client.
 By default, the BASE_URI for tomcat will be :
 http://localhost:8080/api/
-If you want to use tomcat to deploy, you will have to modify following four files to edit
-BASE_URI variable in each of them to following pattern :
+If you want to use tomcat to deploy, you will have to modify BaseCl.java files to edit
+BASE_URI variable to:
 http://localhost:8080/api/
 
 ********************************************************************************

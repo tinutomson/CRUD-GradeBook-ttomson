@@ -9,7 +9,6 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
-import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
 
 public class BaseCl {
     protected WebResource webResource;
@@ -18,7 +17,7 @@ public class BaseCl {
 
     public BaseCl() {
         ClientConfig config = new DefaultClientConfig();
-        config.getClasses().add(MOXyJsonProvider.class);
+        config.getClasses().add(JacksonProvider.class);
         client = Client.create(config);
     }
     

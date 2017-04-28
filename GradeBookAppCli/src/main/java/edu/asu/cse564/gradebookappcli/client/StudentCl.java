@@ -5,19 +5,10 @@
  */
 package edu.asu.cse564.gradebookappcli.client;
 
-import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.UniformInterfaceException;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.client.config.ClientConfig;
-import com.sun.jersey.api.client.config.DefaultClientConfig;
 import edu.asu.cse564.gradebookappcli.model.StudentRecord;
 import javax.ws.rs.core.MediaType;
-import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
 
-/**
- *
- * @author tinutomson
- */
 public class StudentCl extends BaseCl {
 
     public StudentCl() {
