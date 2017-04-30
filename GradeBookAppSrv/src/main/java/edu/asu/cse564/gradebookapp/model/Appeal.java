@@ -5,18 +5,22 @@
  */
 package edu.asu.cse564.gradebookapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  *
  * @author tinutomson
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Appeal {
     private static int uniqueId = 0;
     
     private int appealId;
     private String studentUserName;
     private int taskId;
-    private String Description;
+    private String description;
     private double expectedMark;
+    private AppealStatus status;
 
     public Appeal() {
     }
@@ -46,11 +50,11 @@ public class Appeal {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
-    public void setDescription(String Description) {
-        this.Description = Description;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public double getExpectedMark() {
@@ -60,6 +64,16 @@ public class Appeal {
     public void setExpectedMark(double expectedMark) {
         this.expectedMark = expectedMark;
     }
+
+    public AppealStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AppealStatus status) {
+        this.status = status;
+    }
+    
+    
 
     @Override
     public int hashCode() {
@@ -92,7 +106,7 @@ public class Appeal {
     }
 
     public void update(Appeal updateAppeal) {
-        Description = updateAppeal.Description;
+        description = updateAppeal.description;
         expectedMark = updateAppeal.expectedMark;
     }
     

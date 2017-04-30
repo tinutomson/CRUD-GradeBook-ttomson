@@ -33,6 +33,7 @@ public class AppealList {
 
     Appeal addAppeal(Appeal newAppeal) {
         newAppeal.generateId();
+        newAppeal.setStatus(AppealStatus.NEW);
         appealList.add(newAppeal);
         return newAppeal;
     }

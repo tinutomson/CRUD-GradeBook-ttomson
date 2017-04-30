@@ -13,16 +13,16 @@ public class Appeal {
     private int appealId;
     private String studentUserName;
     private int taskId;
-    private String Description;
+    private String description;
     private double expectedMark;
 
     public Appeal() {
     }
 
-    public Appeal(String studentUserName, int taskId, String Description, double expectedMark) {
+    public Appeal(String studentUserName, int taskId, String description, double expectedMark) {
         this.studentUserName = studentUserName;
         this.taskId = taskId;
-        this.Description = Description;
+        this.description = description;
         this.expectedMark = expectedMark;
     }
     
@@ -51,11 +51,11 @@ public class Appeal {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
-    public void setDescription(String Description) {
-        this.Description = Description;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public double getExpectedMark() {

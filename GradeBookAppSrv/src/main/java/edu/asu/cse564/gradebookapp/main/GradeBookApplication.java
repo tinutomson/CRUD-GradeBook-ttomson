@@ -18,7 +18,6 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 @ApplicationPath("/api")
 public class GradeBookApplication extends ResourceConfig {
-
     public GradeBookApplication() {
         super(JacksonProvider.class,
                 JacksonFeature.class,

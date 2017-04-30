@@ -7,21 +7,24 @@ package edu.asu.cse564.gradebookapp.service;
 
 import edu.asu.cse564.gradebookapp.main.AppData;
 import edu.asu.cse564.gradebookapp.model.Appeal;
+import edu.asu.cse564.gradebookapp.model.AppealStatus;
 import edu.asu.cse564.gradebookapp.model.GradeBook;
 import edu.asu.cse564.gradebookapp.model.GradeItem;
 import edu.asu.cse564.gradebookapp.model.StudentRecord;
+import edu.asu.cse564.gradebookapp.representation.AppealRepresentation;
+import edu.asu.cse564.gradebookapp.representation.GradeItemRepresentation;
+import static edu.asu.cse564.gradebookapp.representation.Representation.GRADEBOOK_MEDIA_TYPE;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -34,15 +37,15 @@ public class GradeBookService {
     GradeBook classGradeBook;
     
     @Context
-    private UriInfo context;
+    private UriInfo uriInfo;
 
     public GradeBookService() {
         classGradeBook = AppData.getGradeBook();
     }
     
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
     public Response readGradeBook() {
         return Response.ok().entity(classGradeBook).build();
     }
@@ -50,8 +53,8 @@ public class GradeBookService {
     //Get all GradeItems
     
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
     @Path("/gradeItems")
     public Response readGradeItems() {
         return Response.ok().entity(classGradeBook.getAssignedList()).build();
@@ -60,44 +63,50 @@ public class GradeBookService {
     // GradeItem CRUD
     
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
     @Path("/gradeItem")
     public Response createGradeItem(GradeItem gradeItem) throws URISyntaxException {
         GradeItem addedItem = classGradeBook.getAssignedList().addIfNotExists(gradeItem);
         if(addedItem == null) {
             return Response.status(Response.Status.CONFLICT).build();
         }
-        URI location = new URI(context.getAbsolutePath() + "/" + Integer.toString(addedItem.getTaskId()));
-        return Response.created(location).entity(addedItem).build();
+        GradeItemRepresentation newGradeItemRepresentation = GradeItemRepresentation.
+                createGradeItemRepresentation(gradeItem, uriInfo.getBaseUri().toString());
+
+        return Response.created(newGradeItemRepresentation.selfURI()).entity(newGradeItemRepresentation).build();
     }
     
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
     @Path("/gradeItem/{gradeItemId}")
     public Response readGradeItem(@PathParam("gradeItemId") String gradeItemId) {
         GradeItem item = classGradeBook.findGradeItemById(gradeItemId);
         if(item == null)
             return Response.status(Response.Status.NOT_FOUND).build();
-        return Response.ok().entity(item).build();
+        GradeItemRepresentation gradeItemRepresentation = GradeItemRepresentation.
+                createGradeItemRepresentation(item, uriInfo.getBaseUri().toString());
+        return Response.ok().entity(gradeItemRepresentation).build();
     }
     
     @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
     @Path("/gradeItem/{gradeItemId}")
     public Response updateGradeItem(@PathParam("gradeItemId") String updateitemId, GradeItem updateItem) {
         GradeItem item = classGradeBook.findGradeItemById(updateitemId);
         if(item == null)
             return Response.status(Response.Status.NOT_FOUND).build();
         item.update(updateItem);
-        return Response.ok().entity(item).build();
+        GradeItemRepresentation gradeItemRepresentation = GradeItemRepresentation.
+                createGradeItemRepresentation(item, uriInfo.getBaseUri().toString());
+        return Response.ok().entity(gradeItemRepresentation).build();
     }
     
     @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
     @Path("/gradeItem/{gradeItemId}")
     public Response deleteGradeItem(@PathParam("gradeItemId") String deleteItemId) {
         GradeItem item = classGradeBook.findGradeItemById(deleteItemId);
@@ -110,33 +119,39 @@ public class GradeBookService {
     //CRUD Appeal
     
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
     @Path("/appeal/")
     public Response createAppeals(Appeal newAppeal) throws URISyntaxException {
+        System.out.print("baseURI" + uriInfo.getBaseUri().toString());
         if(!isValidAppeal(newAppeal))
             return Response.status(Response.Status.CONFLICT).build();
         
         classGradeBook.addAppeal(newAppeal);
+        
+        AppealRepresentation newAppealRepresentation = AppealRepresentation.
+                createAppealRepresentation(newAppeal, uriInfo.getBaseUri().toString());
         URI location = new URI("gradebook/appeal/" + String.valueOf(newAppeal.getAppealId()));
-        return Response.created(location).entity(newAppeal).build();
+        return Response.created(newAppealRepresentation.selfURI()).entity(newAppealRepresentation).build();
     }
     
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
     @Path("/appeal/{appealId}")
     public Response getAppeal(@PathParam("username") String username, @PathParam("appealId")String appealId) {
         Appeal appeal = classGradeBook.getAppeal(appealId);
         if(appeal == null) {
             return Response.status(Response.Status.GONE).build();
         }
-        return Response.ok().entity(appeal).build();
+        AppealRepresentation appealRepresentation = AppealRepresentation.
+                createAppealRepresentation(appeal, uriInfo.getBaseUri().toString());
+        return Response.ok().entity(appealRepresentation).build();
     }
     
     @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
     @Path("/appeal/{appealId}")
     public Response updateAppeal(@PathParam("appealId")String appealId, Appeal updateAppeal) {
         Appeal appeal = classGradeBook.getAppeal(appealId);
@@ -146,27 +161,70 @@ public class GradeBookService {
         if(!isValidAppeal(updateAppeal))
             return Response.status(Response.Status.CONFLICT).build();
         appeal.update(updateAppeal);
-        return Response.ok().entity(appeal).build();
+        AppealRepresentation appealRepresentation = AppealRepresentation.
+                createAppealRepresentation(appeal, uriInfo.getBaseUri().toString());
+        return Response.ok().entity(appealRepresentation).build();
     }
     
     @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
     @Path("/appeal/{appealId}")
-    public Response deleteAppeal(@PathParam("appealId")String appealId, 
-            @DefaultValue("no") @QueryParam("approve") String approval) {
+    public Response deleteAppeal(@PathParam("appealId")String appealId) {
         Appeal appeal = classGradeBook.getAppeal(appealId);
         if(appeal == null) {
             return Response.status(Response.Status.GONE).build();
         }
-            
-        
-        if(approval !=null  && approval.equals("yes") && isValidAppeal(appeal)) {
-            classGradeBook.updateFromAppeal(appeal);
-        }
 
         classGradeBook.deleteAppeal(appeal);
         return Response.ok().entity(appeal).build();
+    }
+    
+    @PUT
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
+    @Path("/appeal/{appealId}/approve")
+    public Response approveAppeal(@PathParam("appealId")String appealId) {
+        Appeal appeal = classGradeBook.getAppeal(appealId);
+        if(appeal == null) {
+            return Response.status(Response.Status.GONE).build();
+        }
+
+        classGradeBook.updateFromAppeal(appeal);
+        appeal.setStatus(AppealStatus.APPOVED);
+        AppealRepresentation appealRepresentation = AppealRepresentation.
+                createAppealRepresentation(appeal, uriInfo.getBaseUri().toString());
+        return Response.ok().entity(appealRepresentation).build();
+    }
+    
+    @PUT
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
+    @Path("/appeal/{appealId}/decline")
+    public Response declineAppeal(@PathParam("appealId")String appealId) {
+        Appeal appeal = classGradeBook.getAppeal(appealId);
+        if(appeal == null) {
+            return Response.status(Response.Status.GONE).build();
+        }
+        appeal.setStatus(AppealStatus.DECLINED);
+        AppealRepresentation appealRepresentation = AppealRepresentation.
+                createAppealRepresentation(appeal, uriInfo.getBaseUri().toString());
+        return Response.ok().entity(appealRepresentation).build();
+    }
+    
+    @PUT
+    @Consumes(GRADEBOOK_MEDIA_TYPE)
+    @Produces(GRADEBOOK_MEDIA_TYPE)
+    @Path("/appeal/{appealId}/archive")
+    public Response archiveAppeal(@PathParam("appealId")String appealId) {
+        Appeal appeal = classGradeBook.getAppeal(appealId);
+        if(appeal == null) {
+            return Response.status(Response.Status.GONE).build();
+        }
+        appeal.setStatus(AppealStatus.ARCHIVE);
+        AppealRepresentation appealRepresentation = AppealRepresentation.
+                createAppealRepresentation(appeal, uriInfo.getBaseUri().toString());
+        return Response.ok().entity(appealRepresentation).build();
     }
     
     private boolean isValidAppeal(Appeal appeal) {

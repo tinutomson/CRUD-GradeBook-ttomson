@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.asu.cse564.gradebookapp.representation;
+package edu.asu.cse564.gradebookapp.model;
 
 /**
  *
  * @author tinutomson
  */
-public class StudentRecordRepresentation {
-    
+public enum AppealStatus {
+    NEW,
+    APPOVED,
+    DECLINED,
+    ARCHIVE
 }
