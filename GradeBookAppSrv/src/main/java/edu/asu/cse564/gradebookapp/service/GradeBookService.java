@@ -189,6 +189,9 @@ public class GradeBookService {
         if(appeal == null) {
             return Response.status(Response.Status.GONE).build();
         }
+        
+        if(appeal.getStatus() != AppealStatus.NEW)
+            return Response.status(Response.Status.CONFLICT).build();
 
         classGradeBook.updateFromAppeal(appeal);
         appeal.setStatus(AppealStatus.APPOVED);
@@ -206,6 +209,9 @@ public class GradeBookService {
         if(appeal == null) {
             return Response.status(Response.Status.GONE).build();
         }
+        
+        if(appeal.getStatus() != AppealStatus.NEW)
+            return Response.status(Response.Status.CONFLICT).build();
         appeal.setStatus(AppealStatus.DECLINED);
         AppealRepresentation appealRepresentation = AppealRepresentation.
                 createAppealRepresentation(appeal, uriInfo.getBaseUri().toString());
@@ -221,6 +227,8 @@ public class GradeBookService {
         if(appeal == null) {
             return Response.status(Response.Status.GONE).build();
         }
+        if(appeal.getStatus() == AppealStatus.ARCHIVE)
+            return Response.status(Response.Status.CONFLICT).build();
         appeal.setStatus(AppealStatus.ARCHIVE);
         AppealRepresentation appealRepresentation = AppealRepresentation.
                 createAppealRepresentation(appeal, uriInfo.getBaseUri().toString());

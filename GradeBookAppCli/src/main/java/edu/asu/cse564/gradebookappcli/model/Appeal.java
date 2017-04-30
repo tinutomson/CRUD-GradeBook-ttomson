@@ -15,6 +15,7 @@ public class Appeal {
     private int taskId;
     private String description;
     private double expectedMark;
+    private AppealStatus status;
 
     public Appeal() {
     }
@@ -65,6 +66,16 @@ public class Appeal {
     public void setExpectedMark(double expectedMark) {
         this.expectedMark = expectedMark;
     }
+
+    public AppealStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AppealStatus status) {
+        this.status = status;
+    }
+    
+    
 
     @Override
     public int hashCode() {

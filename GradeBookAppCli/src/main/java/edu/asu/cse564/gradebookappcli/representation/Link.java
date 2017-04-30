@@ -1,5 +1,5 @@
 
-package edu.asu.cse564.gradebookapp.representation;
+package edu.asu.cse564.gradebookappcli.representation;
 
 import java.net.URI;
 import java.net.URISyntaxException;

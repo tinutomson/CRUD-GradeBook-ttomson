@@ -7,6 +7,8 @@ package edu.asu.cse564.gradebookappcli.client;
 
 import com.sun.jersey.api.client.UniformInterfaceException;
 import edu.asu.cse564.gradebookappcli.model.MarkEntry;
+import edu.asu.cse564.gradebookappcli.representation.MarkEntryRepresentation;
+import static edu.asu.cse564.gradebookappcli.representation.Representation.GRADEBOOK_MEDIA_TYPE;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -20,35 +22,35 @@ public class StudentMarkCl extends BaseCl {
         webResource = client.resource(BASE_URI + "student");
     }
     
-    public MarkEntry createGradeItem(String userName, String taskId, MarkEntry requestEntity) throws UniformInterfaceException {
+    public MarkEntryRepresentation createGradeItem(String userName, String taskId, MarkEntry requestEntity) throws UniformInterfaceException {
         return webResource
                 .path("/" + userName + "/gradeItem/" + taskId)
-                .accept(MediaType.APPLICATION_JSON)
-                .type(MediaType.APPLICATION_JSON)
-                .post(MarkEntry.class, requestEntity);
+                .accept(GRADEBOOK_MEDIA_TYPE)
+                .type(GRADEBOOK_MEDIA_TYPE)
+                .post(MarkEntryRepresentation.class, requestEntity);
     }
     
-    public MarkEntry readGradeItem(String studentId, String taskId) {
+    public MarkEntryRepresentation readGradeItem(String studentId, String taskId) {
         return webResource
                 .path("/" + studentId + "/gradeItem/" + taskId)
-                .accept(MediaType.APPLICATION_JSON)
-                .type(MediaType.APPLICATION_JSON)
-                .get(MarkEntry.class);
+                .accept(GRADEBOOK_MEDIA_TYPE)
+                .type(GRADEBOOK_MEDIA_TYPE)
+                .get(MarkEntryRepresentation.class);
     }
 
-    public MarkEntry updateGradeItem(String studentId, String taskId, MarkEntry updateRecord) {
+    public MarkEntryRepresentation updateGradeItem(String studentId, String taskId, MarkEntry updateRecord) {
         return webResource
                 .path(studentId + "/gradeItem/" + taskId)
-                .accept(MediaType.APPLICATION_JSON)
-                .type(MediaType.APPLICATION_JSON)
-                .put(MarkEntry.class, updateRecord);
+                .accept(GRADEBOOK_MEDIA_TYPE)
+                .type(GRADEBOOK_MEDIA_TYPE)
+                .put(MarkEntryRepresentation.class, updateRecord);
     }
             
     public MarkEntry deleteGradeItem(String studentId, String taskId) {
         return webResource
                 .path("/" + studentId + "/gradeItem/" + taskId)
-                .accept(MediaType.APPLICATION_JSON)
-                .type(MediaType.APPLICATION_JSON)
+                .accept(GRADEBOOK_MEDIA_TYPE)
+                .type(GRADEBOOK_MEDIA_TYPE)
                 .delete(MarkEntry.class);
     }
 }

@@ -7,7 +7,9 @@ package edu.asu.cse564.gradebookappcli.client;
 
 import com.sun.jersey.api.client.UniformInterfaceException;
 import edu.asu.cse564.gradebookappcli.model.StudentRecord;
-import javax.ws.rs.core.MediaType;
+import static edu.asu.cse564.gradebookappcli.representation.Representation.GRADEBOOK_MEDIA_TYPE;
+import edu.asu.cse564.gradebookappcli.representation.StudentRepresentation;
+
 
 public class StudentCl extends BaseCl {
 
@@ -16,34 +18,34 @@ public class StudentCl extends BaseCl {
         webResource = client.resource(BASE_URI + "student");
     }
     
-    public StudentRecord createStudent(Object requestEntity) throws UniformInterfaceException {      
+    public StudentRepresentation createStudent(Object requestEntity) throws UniformInterfaceException {      
         return webResource
-                .accept(MediaType.APPLICATION_JSON)
-                .type(MediaType.APPLICATION_JSON)
-                .post(StudentRecord.class, requestEntity);
+                .accept(GRADEBOOK_MEDIA_TYPE)
+                .type(GRADEBOOK_MEDIA_TYPE)
+                .post(StudentRepresentation.class, requestEntity);
     }
     
-    public StudentRecord readStudent(String studentId) {
+    public StudentRepresentation readStudent(String studentId) {
         return webResource
                 .path("/" + studentId)
-                .accept(MediaType.APPLICATION_JSON)
-                .type(MediaType.APPLICATION_JSON)
-                .get(StudentRecord.class);
+                .accept(GRADEBOOK_MEDIA_TYPE)
+                .type(GRADEBOOK_MEDIA_TYPE)
+                .get(StudentRepresentation.class);
     }
 
-    public StudentRecord updateStudent(String studentId, StudentRecord updateRecord) {
+    public StudentRepresentation updateStudent(String studentId, StudentRecord updateRecord) {
         return webResource
                 .path("/" + studentId)
-                .accept(MediaType.APPLICATION_JSON)
-                .type(MediaType.APPLICATION_JSON)
-                .put(StudentRecord.class, updateRecord);
+                .accept(GRADEBOOK_MEDIA_TYPE)
+                .type(GRADEBOOK_MEDIA_TYPE)
+                .put(StudentRepresentation.class, updateRecord);
     }
             
     public StudentRecord deleteStudent(String studentId) {
         return webResource
                 .path("/" + studentId)
-                .accept(MediaType.APPLICATION_JSON)
-                .type(MediaType.APPLICATION_JSON)
+                .accept(GRADEBOOK_MEDIA_TYPE)
+                .type(GRADEBOOK_MEDIA_TYPE)
                 .delete(StudentRecord.class);
     }
 }

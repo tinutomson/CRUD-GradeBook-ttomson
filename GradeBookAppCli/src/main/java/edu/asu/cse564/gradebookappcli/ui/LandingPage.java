@@ -9,6 +9,8 @@ import edu.asu.cse564.gradebookappcli.client.*;
 import edu.asu.cse564.gradebookappcli.model.*;
 
 import com.sun.jersey.api.client.UniformInterfaceException;
+import edu.asu.cse564.gradebookappcli.representation.*;
+import java.util.List;
 
 
 /**
@@ -192,6 +194,7 @@ public class LandingPage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jRADescTextArea = new javax.swing.JTextArea();
         jRAErrorLabel = new javax.swing.JLabel();
+        jRAStatusLabel = new javax.swing.JLabel();
         jUAPanel = new javax.swing.JPanel();
         jLabel58 = new javax.swing.JLabel();
         jUAIDTextField = new javax.swing.JTextField();
@@ -206,12 +209,15 @@ public class LandingPage extends javax.swing.JFrame {
         jUADescTextArea = new javax.swing.JTextArea();
         jUAButton = new javax.swing.JButton();
         jUAErrorLabel = new javax.swing.JLabel();
+        jUAApprove = new javax.swing.JButton();
+        jUADecline = new javax.swing.JButton();
+        jUAArchive = new javax.swing.JButton();
+        jUAStatusLabel = new javax.swing.JLabel();
         jPanel32 = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
         jDAIDTextField = new javax.swing.JTextField();
         jDAButton = new javax.swing.JButton();
         jDAErrorLabel = new javax.swing.JLabel();
-        jDAApproveButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
@@ -291,8 +297,8 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jCreateStudentButton)
                 .addGap(18, 18, 18)
-                .addComponent(jCSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addComponent(jCSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jStudentTabbedPane.addTab("Create Student", jPanel16);
@@ -326,8 +332,7 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel17Layout.createSequentialGroup()
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -337,7 +342,8 @@ public class LandingPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRSButton)
-                            .addComponent(jRSUserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jRSUserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jRSErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
@@ -354,8 +360,8 @@ public class LandingPage extends javax.swing.JFrame {
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRSStudentNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jRSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addComponent(jRSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -413,7 +419,6 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jUSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -423,8 +428,9 @@ public class LandingPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jUpdateStudentButton)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(132, Short.MAX_VALUE))
+                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jUSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -440,8 +446,8 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jUpdateStudentButton)
                 .addGap(44, 44, 44)
-                .addComponent(jUSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addComponent(jUSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jStudentTabbedPane.addTab("Update Student", jPanel14);
@@ -470,14 +476,14 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(71, 71, 71)
                         .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jDeleteStudentButton)
                             .addComponent(jDSUserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -489,8 +495,8 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jDeleteStudentButton)
                 .addGap(18, 18, 18)
-                .addComponent(jDSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addComponent(jDSErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
@@ -526,7 +532,7 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jStudentTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 159, Short.MAX_VALUE))
+                .addGap(0, 151, Short.MAX_VALUE))
         );
 
         jMainTabbedPanel.addTab("Manage Students", jPanel1);
@@ -577,7 +583,6 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel10Layout.createSequentialGroup()
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -596,8 +601,9 @@ public class LandingPage extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jCGButton)
-                                .addComponent(jScrollPane2)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jScrollPane2))))
+                    .addComponent(jCGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -621,8 +627,8 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jCGButton)
                 .addGap(18, 18, 18)
-                .addComponent(jCGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jCGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         jGradeTabbedPane.addTab("Create Grade", jPanel10);
@@ -672,27 +678,30 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRGErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel21Layout.createSequentialGroup()
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRGStudMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel21Layout.createSequentialGroup()
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel21Layout.createSequentialGroup()
-                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRGUserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel21Layout.createSequentialGroup()
-                        .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRGButton)
-                            .addComponent(jRGTaskIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jRGErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(87, Short.MAX_VALUE))
+                            .addGroup(jPanel21Layout.createSequentialGroup()
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRGStudMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel21Layout.createSequentialGroup()
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel21Layout.createSequentialGroup()
+                                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRGUserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel21Layout.createSequentialGroup()
+                                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRGButton)
+                                    .addComponent(jRGTaskIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 81, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -716,8 +725,8 @@ public class LandingPage extends javax.swing.JFrame {
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jRGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addComponent(jRGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -726,13 +735,13 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 116, Short.MAX_VALUE))
+                .addGap(0, 105, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 17, Short.MAX_VALUE))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
 
         jGradeTabbedPane.addTab("Read Grade", jPanel11);
@@ -788,7 +797,7 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGroup(jPanel22Layout.createSequentialGroup()
                     .addGap(68, 68, 68)
                     .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jUGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jUGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel22Layout.createSequentialGroup()
                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -807,14 +816,14 @@ public class LandingPage extends javax.swing.JFrame {
                                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jUGButton)
                                     .addComponent(jScrollPane6)))))
-                    .addContainerGap(69, Short.MAX_VALUE)))
+                    .addContainerGap(30, Short.MAX_VALUE)))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addGap(173, 173, 173)
                 .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(339, Short.MAX_VALUE))
+                .addContainerGap(331, Short.MAX_VALUE))
             .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel22Layout.createSequentialGroup()
                     .addGap(5, 5, 5)
@@ -834,8 +843,8 @@ public class LandingPage extends javax.swing.JFrame {
                     .addGap(26, 26, 26)
                     .addComponent(jUGButton)
                     .addGap(18, 18, 18)
-                    .addComponent(jUGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(164, Short.MAX_VALUE)))
+                    .addComponent(jUGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(33, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -844,7 +853,7 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 116, Short.MAX_VALUE))
+                .addGap(0, 105, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -878,7 +887,7 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel23Layout.createSequentialGroup()
                         .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -889,8 +898,8 @@ public class LandingPage extends javax.swing.JFrame {
                         .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jDGButton)
                             .addComponent(jDGGradeItemTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jDGErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(101, Short.MAX_VALUE))
+                    .addComponent(jDGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -906,8 +915,8 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jDGButton)
                 .addGap(18, 18, 18)
-                .addComponent(jDGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addComponent(jDGErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -917,13 +926,13 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 159, Short.MAX_VALUE))
+                .addGap(0, 151, Short.MAX_VALUE))
         );
 
         jGradeTabbedPane.addTab("Delete Grade", jPanel13);
@@ -936,7 +945,7 @@ public class LandingPage extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jGradeTabbedPane)
+            .addComponent(jGradeTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
         );
 
         jMainTabbedPanel.addTab("Manage Student Grades", jPanel2);
@@ -981,7 +990,6 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(jPanel24Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel24Layout.createSequentialGroup()
                         .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -995,8 +1003,9 @@ public class LandingPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCTTotMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCTButton))))
-                .addContainerGap(105, Short.MAX_VALUE))
+                            .addComponent(jCTButton)))
+                    .addComponent(jCTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1016,15 +1025,15 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jCTButton)
                 .addGap(18, 18, 18)
-                .addComponent(jCTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addComponent(jCTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 829, Short.MAX_VALUE)
+            .addGap(0, 818, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1033,7 +1042,7 @@ public class LandingPage extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
+            .addGap(0, 536, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1091,7 +1100,6 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(jPanel38Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel38Layout.createSequentialGroup()
                         .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1109,8 +1117,9 @@ public class LandingPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRTButton)
-                            .addComponent(jRTIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(105, Short.MAX_VALUE))
+                            .addComponent(jRTIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jRTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel38Layout.setVerticalGroup(
             jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1134,8 +1143,8 @@ public class LandingPage extends javax.swing.JFrame {
                     .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRTTotMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jRTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addComponent(jRTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
@@ -1156,7 +1165,7 @@ public class LandingPage extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 829, Short.MAX_VALUE)
+            .addGap(0, 818, Short.MAX_VALUE)
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1165,7 +1174,7 @@ public class LandingPage extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
+            .addGap(0, 536, Short.MAX_VALUE)
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1222,8 +1231,7 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jUTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel26Layout.createSequentialGroup()
                         .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1241,7 +1249,8 @@ public class LandingPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jUTTotMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jUTButtion))))
+                            .addComponent(jUTButtion)))
+                    .addComponent(jUTErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(105, Short.MAX_VALUE))
         );
         jPanel26Layout.setVerticalGroup(
@@ -1266,27 +1275,27 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jUTButtion)
                 .addGap(18, 18, 18)
-                .addComponent(jUTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addComponent(jUTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 829, Short.MAX_VALUE)
+            .addGap(0, 818, Short.MAX_VALUE)
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
                     .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 93, Short.MAX_VALUE)))
+                    .addGap(0, 82, Short.MAX_VALUE)))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
+            .addGap(0, 536, Short.MAX_VALUE)
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
                     .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 129, Short.MAX_VALUE)))
+                    .addGap(0, 121, Short.MAX_VALUE)))
         );
 
         jTaskTabbedPane.addTab("Update Task", jPanel7);
@@ -1315,14 +1324,14 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(jPanel27Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel27Layout.createSequentialGroup()
                         .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jDTButton)
                             .addComponent(jDTIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel27Layout.setVerticalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1334,15 +1343,15 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(jDTButton)
                 .addGap(18, 18, 18)
-                .addComponent(jDTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addComponent(jDTErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 829, Short.MAX_VALUE)
+            .addGap(0, 818, Short.MAX_VALUE)
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1351,7 +1360,7 @@ public class LandingPage extends javax.swing.JFrame {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
+            .addGap(0, 536, Short.MAX_VALUE)
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1409,7 +1418,8 @@ public class LandingPage extends javax.swing.JFrame {
             jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jCAPanelLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jCAPanelLayout.createSequentialGroup()
                         .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1426,9 +1436,8 @@ public class LandingPage extends javax.swing.JFrame {
                         .addGroup(jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCAExpMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCAButton)))
-                    .addComponent(jCAErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(208, Short.MAX_VALUE))
+                            .addComponent(jCAButton))))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jCAPanelLayout.setVerticalGroup(
             jCAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1452,8 +1461,8 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jCAButton)
                 .addGap(18, 18, 18)
-                .addComponent(jCAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addComponent(jCAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
@@ -1466,7 +1475,7 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel29Layout.createSequentialGroup()
                 .addComponent(jCAPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 120, Short.MAX_VALUE))
+                .addGap(0, 50, Short.MAX_VALUE))
         );
 
         jAppealTabbedPane.addTab("Create Appeal", jPanel29);
@@ -1507,16 +1516,14 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(jPanel34Layout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jRAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel34Layout.createSequentialGroup()
-                            .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane1)
-                                .addComponent(jRAExpMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel34Layout.createSequentialGroup()
+                        .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jRAExpMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel34Layout.createSequentialGroup()
                         .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1529,9 +1536,16 @@ public class LandingPage extends javax.swing.JFrame {
                         .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRAButton)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel34Layout.createSequentialGroup()
+                                .addComponent(jRAButton)
+                                .addGap(91, 91, 91)
+                                .addComponent(jRAStatusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jRAStudNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel34Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jRAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel34Layout.setVerticalGroup(
             jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1541,7 +1555,9 @@ public class LandingPage extends javax.swing.JFrame {
                     .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRAIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jRAButton)
+                .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRAButton)
+                    .addComponent(jRAStatusLabel))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1558,9 +1574,9 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(jRAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jRAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jRAPanelLayout = new javax.swing.GroupLayout(jRAPanel);
@@ -1569,7 +1585,7 @@ public class LandingPage extends javax.swing.JFrame {
             jRAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jRAPanelLayout.createSequentialGroup()
                 .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 40, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jRAPanelLayout.setVerticalGroup(
             jRAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1621,6 +1637,27 @@ public class LandingPage extends javax.swing.JFrame {
 
         jUAErrorLabel.setForeground(new java.awt.Color(255, 0, 0));
 
+        jUAApprove.setText("Approve Appeal");
+        jUAApprove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jUAApproveActionPerformed(evt);
+            }
+        });
+
+        jUADecline.setText("Decline Appeal");
+        jUADecline.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jUADeclineActionPerformed(evt);
+            }
+        });
+
+        jUAArchive.setText("Archive Appeal");
+        jUAArchive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jUAArchiveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jUAPanelLayout = new javax.swing.GroupLayout(jUAPanel);
         jUAPanel.setLayout(jUAPanelLayout);
         jUAPanelLayout.setHorizontalGroup(
@@ -1649,14 +1686,33 @@ public class LandingPage extends javax.swing.JFrame {
                             .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jUAExpMarkTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jUAButton)))
-                        .addComponent(jUAErrorLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(152, Short.MAX_VALUE))
+                                .addGroup(jUAPanelLayout.createSequentialGroup()
+                                    .addComponent(jUAButton)
+                                    .addGap(42, 42, 42)
+                                    .addComponent(jUAStatusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(141, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jUAPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jUAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jUAPanelLayout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(jUAApprove)
+                .addGap(18, 18, 18)
+                .addComponent(jUADecline)
+                .addGap(18, 18, 18)
+                .addComponent(jUAArchive)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jUAPanelLayout.setVerticalGroup(
             jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jUAPanelLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(7, 7, 7)
+                .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jUAApprove)
+                    .addComponent(jUADecline)
+                    .addComponent(jUAArchive))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jUAIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1677,10 +1733,12 @@ public class LandingPage extends javax.swing.JFrame {
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jUAButton)
+                .addGroup(jUAPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jUAButton)
+                    .addComponent(jUAStatusLabel))
                 .addGap(18, 18, 18)
-                .addComponent(jUAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addComponent(jUAErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jAppealTabbedPane.addTab("Update Appeal", jUAPanel);
@@ -1700,13 +1758,6 @@ public class LandingPage extends javax.swing.JFrame {
             }
         });
 
-        jDAApproveButton.setText("Approve and Delete Appeal");
-        jDAApproveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jDAApproveButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
         jPanel32.setLayout(jPanel32Layout);
         jPanel32Layout.setHorizontalGroup(
@@ -1714,18 +1765,14 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(jPanel32Layout.createSequentialGroup()
                 .addGap(103, 103, 103)
                 .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDAErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jDAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel32Layout.createSequentialGroup()
                         .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel32Layout.createSequentialGroup()
-                                .addComponent(jDAButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(jDAApproveButton))
-                            .addComponent(jDAIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 21, Short.MAX_VALUE)))
-                .addGap(129, 129, 129))
+                            .addComponent(jDAButton)
+                            .addComponent(jDAIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         jPanel32Layout.setVerticalGroup(
             jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1735,12 +1782,10 @@ public class LandingPage extends javax.swing.JFrame {
                     .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jDAIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
-                .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jDAButton)
-                    .addComponent(jDAApproveButton))
+                .addComponent(jDAButton)
                 .addGap(28, 28, 28)
-                .addComponent(jDAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(366, Short.MAX_VALUE))
+                .addComponent(jDAErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         jAppealTabbedPane.addTab("Delete Appeal", jPanel32);
@@ -1800,7 +1845,8 @@ public class LandingPage extends javax.swing.JFrame {
         String weightage = jUTWeightTextField.getText(); 
         String totMark = jUTTotMarkTextField.getText();
         double doubleTotMark, doubleWeightage;
-        GradeItem updateItem = null, updatedItem = null;
+        GradeItem updateItem = null;
+        GradeItemRepresentation updatedItem = null;
         try { 
             doubleTotMark = Double.parseDouble(totMark);
             doubleWeightage = Double.parseDouble(weightage);
@@ -1846,7 +1892,9 @@ public class LandingPage extends javax.swing.JFrame {
         String weightage = jCTWeightageTextField.getText(); 
         String totMark = jCTTotMarkTextField.getText();
         double intTotMark, intWeightage;
-        GradeItem newItem = null, addedItem = null;
+        GradeItem newItem = null;
+        GradeItemRepresentation addedItem = null;
+        
         try { 
             intTotMark = Double.parseDouble(totMark);
             intWeightage = Double.parseDouble(weightage);
@@ -1875,7 +1923,7 @@ public class LandingPage extends javax.swing.JFrame {
         String studentUserName = jCreateUserNameTextField.getText();
         String studentName = jTextField2.getText();       
         StudentRecord newRecord = new StudentRecord(studentName, studentUserName );
-        StudentRecord addedRecord = null;
+        StudentRepresentation addedRecord = null;
         try {
             addedRecord = studentCl.createStudent(newRecord);
         } catch(UniformInterfaceException e) {
@@ -1897,7 +1945,7 @@ public class LandingPage extends javax.swing.JFrame {
         String studentUserName = jTextField15.getText();
         String studentName = jTextField16.getText();       
         StudentRecord updateRecord = new StudentRecord(studentName, studentUserName );
-        StudentRecord updatedRecord = null;
+        StudentRepresentation updatedRecord = null;
         try {
             updatedRecord = studentCl.updateStudent(studentUserName, updateRecord);
         } catch(UniformInterfaceException e) {
@@ -1916,7 +1964,7 @@ public class LandingPage extends javax.swing.JFrame {
 
     private void jRSButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRSButtonActionPerformed
         String studentUserName = jRSUserNameTextField.getText();    
-        StudentRecord readRecord = null;
+        StudentRepresentation readRecord = null;
         try {
             readRecord = studentCl.readStudent(studentUserName);
         } catch(UniformInterfaceException e) {
@@ -1957,7 +2005,7 @@ public class LandingPage extends javax.swing.JFrame {
         String userName = jRGUserNameTextField.getText();
         String taskId = jRGTaskIdTextField.getText();
 
-        MarkEntry readEntry = null;
+        MarkEntryRepresentation readEntry = null;
         
         try {
             readEntry = studentMarkCl.readGradeItem(userName, taskId);
@@ -2008,7 +2056,8 @@ public class LandingPage extends javax.swing.JFrame {
         String description = jCADescriptionTextArea.getText();
         int intTaskId;
         double doubleExpMark;
-        Appeal newAppeal = null, addedAppeal = null;
+        Appeal newAppeal = null;
+        AppealRepresentation addedAppeal = null;
         try { 
             intTaskId = Integer.parseInt(taskID);
             doubleExpMark = Double.parseDouble(expMark);
@@ -2037,7 +2086,8 @@ public class LandingPage extends javax.swing.JFrame {
         String description = jUADescTextArea.getText();
         int intTaskId;
         double doubleExpMark;
-        Appeal updateAppeal = null, updatedAppeal = null;
+        Appeal updateAppeal = null; 
+        AppealRepresentation updatedAppeal = null;
         try { 
             intTaskId = Integer.parseInt(taskID);
             doubleExpMark = Double.parseDouble(expMark);
@@ -2080,7 +2130,7 @@ public class LandingPage extends javax.swing.JFrame {
 
     private void jRTButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRTButtonActionPerformed
         String taskID = jRTIDTextField.getText();
-        GradeItem item = null;
+        GradeItemRepresentation item = null;
         try {
             item = taskCl.readGradeItem(taskID);
         } catch(UniformInterfaceException e) {
@@ -2106,7 +2156,8 @@ public class LandingPage extends javax.swing.JFrame {
         String taskId = jCGTaskIdTextField.getText();
         String stuMark = jCGStudMarkTextField.getText();
         String feedBack = jCGFeedbackTextField.getText();
-        MarkEntry newEntry = null, addedEntry = null;
+        MarkEntry newEntry = null;
+        MarkEntryRepresentation addedEntry = null;
         try {
             double doubleStuMark = Double.parseDouble(stuMark);
              newEntry = new MarkEntry(doubleStuMark, feedBack);
@@ -2127,7 +2178,8 @@ public class LandingPage extends javax.swing.JFrame {
         String taskId = jUGTaskIdTextField.getText();
         String stuMark = jUGStudMarkTextField.getText();
         String feedBack = jUGFeedbackTextField.getText();
-        MarkEntry updateEntry = null, updatedEntry = null;
+        MarkEntry updateEntry = null;
+        MarkEntryRepresentation updatedEntry = null;
         try {
             double doubleStuMark = Double.parseDouble(stuMark);
              updateEntry = new MarkEntry(doubleStuMark, feedBack);
@@ -2145,7 +2197,7 @@ public class LandingPage extends javax.swing.JFrame {
 
     private void jRAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRAButtonActionPerformed
         String appealId = jRAIDTextField.getText();
-        Appeal readAppeal = null;
+        AppealRepresentation readAppeal = null;
         try {
             readAppeal = appealCl.readAppeal(appealId);
         } catch(UniformInterfaceException e) {
@@ -2158,16 +2210,38 @@ public class LandingPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRATaskIdTextFieldActionPerformed
 
-    private void jDAApproveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDAApproveButtonActionPerformed
-        String appealId = jDAIDTextField.getText();    
-        Appeal appeal = null;
+    private void jUAApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUAApproveActionPerformed
+        String appealId = jUAIDTextField.getText();
+        AppealRepresentation approveAppeal = null;
         try {
-            appeal = appealCl.deleteAppeal(appealId, "yes");
+            approveAppeal = appealCl.approve(appealId);
         } catch(UniformInterfaceException e) {
-            
+
         }
-        this.populateDeleteAppealForm(appeal);        
-    }//GEN-LAST:event_jDAApproveButtonActionPerformed
+        this.populateUpdateAppealForm(approveAppeal);
+    }//GEN-LAST:event_jUAApproveActionPerformed
+
+    private void jUADeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUADeclineActionPerformed
+        String appealId = jUAIDTextField.getText();
+        AppealRepresentation declineAppeal = null;
+        try {
+            declineAppeal = appealCl.decline(appealId);
+        } catch(UniformInterfaceException e) {
+
+        }
+        this.populateUpdateAppealForm(declineAppeal);
+    }//GEN-LAST:event_jUADeclineActionPerformed
+
+    private void jUAArchiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUAArchiveActionPerformed
+        String appealId = jUAIDTextField.getText();
+        AppealRepresentation archiveAppeal = null;
+        try {
+            archiveAppeal = appealCl.archive(appealId);
+        } catch(UniformInterfaceException e) {
+
+        }
+        this.populateUpdateAppealForm(archiveAppeal);
+    }//GEN-LAST:event_jUAArchiveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2227,7 +2301,6 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JTextField jCTWeightageTextField;
     private javax.swing.JButton jCreateStudentButton;
     private javax.swing.JTextField jCreateUserNameTextField;
-    private javax.swing.JButton jDAApproveButton;
     private javax.swing.JButton jDAButton;
     private javax.swing.JLabel jDAErrorLabel;
     private javax.swing.JTextField jDAIDTextField;
@@ -2327,6 +2400,7 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JTextField jRAExpMarkTextField;
     private javax.swing.JTextField jRAIDTextField;
     private javax.swing.JPanel jRAPanel;
+    private javax.swing.JLabel jRAStatusLabel;
     private javax.swing.JTextField jRAStudNameTextField;
     private javax.swing.JTextField jRATaskIdTextField;
     private javax.swing.JButton jRGButton;
@@ -2358,12 +2432,16 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JButton jUAApprove;
+    private javax.swing.JButton jUAArchive;
     private javax.swing.JButton jUAButton;
+    private javax.swing.JButton jUADecline;
     private javax.swing.JTextArea jUADescTextArea;
     private javax.swing.JLabel jUAErrorLabel;
     private javax.swing.JTextField jUAExpMarkTextField;
     private javax.swing.JTextField jUAIDTextField;
     private javax.swing.JPanel jUAPanel;
+    private javax.swing.JLabel jUAStatusLabel;
     private javax.swing.JTextField jUAStudNameTextField;
     private javax.swing.JTextField jUATaskIDTextField;
     private javax.swing.JButton jUGButton;
@@ -2389,32 +2467,36 @@ public class LandingPage extends javax.swing.JFrame {
         taskCl =  new TaskCl();
     }
 
-    private void populateCreateStudentForm(StudentRecord record) {
+    private void populateCreateStudentForm(StudentRepresentation record) {
         String notice;
         if(record != null) {
-            notice = "The user created at : /student/" + record.getUserName();
+            notice = "The user created at :  " + record.selfURI();
+            notice = printLinks(notice, record.getLinks());
         } else {
             notice = "Unable to create user. Try again with different username";
         }
         jCSErrorLabel.setText(notice);
     }
     
-    private void populateReadStudentForm(StudentRecord record) {
+    private void populateReadStudentForm(StudentRepresentation record) {
         String notice;
         if(record != null) {
             jRSStudentNameTextField.setText(record.getStudentName());
-            notice = "The user read at : /student/" + record.getUserName();
+            notice = "The user read at : " + record.selfURI();
+            notice = printLinks(notice, record.getLinks());
         } else {
+            jRSStudentNameTextField.setText("");
             notice = "Unable to read user. Check if the user exists";
         }
         jRSErrorLabel.setText(notice);
         
     }
 
-    private void populateUpdateStudentForm(StudentRecord record) {
+    private void populateUpdateStudentForm(StudentRepresentation record) {
         String notice;
         if(record != null) {
-            notice = "The user updated at : /student/" + record.getUserName();
+            notice = "The user updated at : " + record.selfURI();
+            notice = printLinks(notice, record.getLinks());
         } else {
             notice = "Unable to update user. Check if the user exists";
         }
@@ -2432,34 +2514,39 @@ public class LandingPage extends javax.swing.JFrame {
         jDSErrorLabel.setText(notice);
     }
 
-    private void populateCreateTaskForm(GradeItem item) {
+    private void populateCreateTaskForm(GradeItemRepresentation item) {
         String notice;
         if(item != null) {
-            notice = "The task created at : /gradeItem/" + item.getTaskId();
+            notice = "The task created at : " + item.selfURI();
+            notice = printLinks(notice, item.getLinks());
         } else {
             notice = "Unable to create task. Check if the task exists";
         }
         jCTErrorLabel.setText(notice); 
     }
     
-    private void populateReadTaskForm(GradeItem item) {
+    private void populateReadTaskForm(GradeItemRepresentation item) {
         String notice;
         if(item != null) {
-            String strTaskId = Integer.toString(item.getTaskId());
             jRTNameTextField.setText(item.getTaskName());
             jRTWeightTextField.setText(Double.toString(item.getWeightage()));
             jRTTotMarkTextField.setText(Double.toString(item.getTotalMark()));
-            notice = "The user read at : /student/" + strTaskId;
+            notice = "The user read at : " + item.selfURI();
+            notice = printLinks(notice, item.getLinks());
         } else {
+            jRTNameTextField.setText("");
+            jRTWeightTextField.setText("");
+            jRTTotMarkTextField.setText("");
             notice = "Unable to read user. Check if the user exists";
         }
         jRTErrorLabel.setText(notice);
     }
     
-    private void populateUpdateTaskForm(GradeItem item) {
+    private void populateUpdateTaskForm(GradeItemRepresentation item) {
         String notice;
         if(item != null) {
-            notice = "The task updated at : /gradeItem/" + item.getTaskId();
+            notice = "The task updated at : " + item.selfURI();
+            notice = printLinks(notice, item.getLinks());
         } else {
             notice = "Unable to update task. Check if the task exists";
         }
@@ -2476,17 +2563,19 @@ public class LandingPage extends javax.swing.JFrame {
         jDTErrorLabel.setText(notice);
     }
 
-    private void populateCreateAppealForm(Appeal addedAppeal) {
+    private void populateCreateAppealForm(AppealRepresentation addedAppeal) {
         String notice;
         if(addedAppeal != null) {
-            notice = "The appeal created at : gradebook/appeal/" + addedAppeal.getAppealId();
+            notice = "The appeal created at : " + addedAppeal.selfURI();
+            notice = printLinks(notice, addedAppeal.getLinks());
+            
         } else {
             notice = "Unable to create appeal. Check if the appeal exists";
         }
         jCAErrorLabel.setText(notice);         
     }
     
-    private void populateReadAppealForm(Appeal item) {
+    private void populateReadAppealForm(AppealRepresentation item) {
         String notice;
         if(item != null) {
             String strTaskId = Integer.toString(item.getTaskId());
@@ -2494,19 +2583,27 @@ public class LandingPage extends javax.swing.JFrame {
             jRATaskIdTextField.setText(Integer.toString(item.getTaskId()));
             jRAExpMarkTextField.setText(Double.toString(item.getExpectedMark()));
             jRADescTextArea.setText(item.getDescription());
-            notice = "The appeal read at : gradebook/appeal/" + item.getAppealId();
+            jRAStatusLabel.setText("Status: " + item.getStatus().name());
+            notice = "The appeal read at : " + item.selfURI();
+            notice = printLinks(notice, item.getLinks());
         } else {
             notice = "Unable to read appeal. Check if the appeal exists";
+            jRAStudNameTextField.setText("");
+            jRATaskIdTextField.setText("");
+            jRAExpMarkTextField.setText("");
+            jRADescTextArea.setText("");
         }
         jRAErrorLabel.setText(notice);
     }
     
-    private void populateUpdateAppealForm(Appeal item) {
+    private void populateUpdateAppealForm(AppealRepresentation item) {
         String notice;
         if(item != null) {
-            notice = "The task updated at : gradebook/appeal/" + item.getAppealId();
+            jUAStatusLabel.setText("Status: " + item.getStatus().name());
+            notice = "The task updated at : " + item.selfURI();
+            notice = printLinks(notice, item.getLinks());
         } else {
-            notice = "Unable to update appeal. Check if the appeal exists";
+            notice = "Unable to update appeal. Check if the appeal is editable";
         }
         jUAErrorLabel.setText(notice);   
     }
@@ -2521,33 +2618,38 @@ public class LandingPage extends javax.swing.JFrame {
         jDAErrorLabel.setText(notice);
     }
 
-    private void populateCreateStudentMarkForm(MarkEntry addedEntry, String taskId, String username) {
+    private void populateCreateStudentMarkForm(MarkEntryRepresentation addedEntry, String taskId, String username) {
         String notice;
         if(addedEntry != null) {
-            notice = "The appeal created at : student/" + username + "gradeItem/" + taskId;
+            notice = "The appeal created at : " + addedEntry.selfURI();
+            notice = printLinks(notice, addedEntry.getLinks());
         } else {
             notice = "Unable to create mark. Check if something is wrong.";
         }
         jCGErrorLabel.setText(notice);
     }
     
-    private void populateReadStudentMarkForm(MarkEntry readEntry, String taskId, String username) {
+    private void populateReadStudentMarkForm(MarkEntryRepresentation readEntry, String taskId, String username) {
         String notice;
         if(readEntry != null) {
             jRGStudMarkTextField.setText(Double.toString(readEntry.getMark()));
             jRGFeedbackTextField.setText(readEntry.getFeedBack());
-            notice = "The mark read at : student/" + username + "gradeItem/" + taskId;
+            notice = "The mark read at : " + readEntry.selfURI();
+            notice = printLinks(notice, readEntry.getLinks());
         } else {
+            jRGStudMarkTextField.setText("");
+            jRGFeedbackTextField.setText("");
             notice = "Unable to read mark. Check if something is wrong.";
         }
         
         jRGErrorLabel.setText(notice);
     }
     
-    private void populateUpdateStudentMarkForm(MarkEntry updatedEntry, String taskId, String username) {
+    private void populateUpdateStudentMarkForm(MarkEntryRepresentation updatedEntry, String taskId, String username) {
         String notice;
         if(updatedEntry != null) {
-            notice = "The mark update at : student/" + username + "gradeItem/" + taskId;
+            notice = "The mark update at : " + updatedEntry.selfURI();
+            notice = printLinks(notice, updatedEntry.getLinks());
         } else {
             notice = "Unable to update mark. Check if the mark exists";
         }
@@ -2557,10 +2659,22 @@ public class LandingPage extends javax.swing.JFrame {
     private void populateDeleteStudentMarkForm(MarkEntry addedEntry, String taskId, String username) {
         String notice;
         if(addedEntry != null) {
-            notice = "The mark deleted at : student/" + username + "gradeItem/" + taskId;
+            notice = "The mark deleted at : student/" + username + "/gradeItem/" + taskId;
         } else {
             notice = "Unable to deleted mark. Check if something is wrong.";
         }
         jDGErrorLabel.setText(notice);
+    }
+
+    private String printLinks(String notice, List<Link> links) {
+        StringBuilder sb = new StringBuilder("<html>").append(notice);
+        links.forEach((link) -> {
+            sb.append("<br>")
+                    .append(Representation.getVerbforRel(link.getRel()))
+                    .append(" : ")
+                    .append(link.getHref());
+        });
+        sb.append("</html>");
+        return sb.toString();
     }
 }
