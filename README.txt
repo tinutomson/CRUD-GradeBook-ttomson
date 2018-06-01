@@ -23,15 +23,6 @@ mvn install
 Server Application Deployment Requirement
 Apache Tomcat 9.0 or Glassfish 4.0
 
-********************************************************************************
-	IMPORTANT : NOTICE OF GLASSFISH BUG ON VERSION 4.1.x
-********************************************************************************
-
-The application is tested both on Glasfish 4.0 and Apache Tomcat. The application DOES NOT work on Glassfish 4.1.x because of the following bug:
-
-http://stackoverflow.com/questions/33319659/moxy-exceptions-in-javaee-jersey-2-0-project
-
-This bug is well documented all over the internet and is not the problem with the application itself. Please take the above fact into consideration before running the application.
 
 As of now , the client application relative URL is configured to work with Glassfish 4.0. The client assumes that server application is hosted at :
 http://localhost:8080/GradeBookAppSrv/api/
